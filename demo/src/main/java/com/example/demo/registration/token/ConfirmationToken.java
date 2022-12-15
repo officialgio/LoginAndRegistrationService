@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -20,7 +21,8 @@ public class ConfirmationToken {
             sequenceName = "confirmation_token_sequence",
             allocationSize = 1
     )
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
             generator = "confirmation_token_sequence"
     )
     private Long id;
@@ -34,13 +36,12 @@ public class ConfirmationToken {
     @Column(nullable = false)
     private LocalDateTime expiresAt;
 
-    @Column(nullable = false)
     private LocalDateTime confirmedAt;
 
     @ManyToOne
     @JoinColumn(
             nullable = false,
-            name = "confirmation_token_id"
+            name = "app_user_id"
     )
     private AppUser appUser;
 

@@ -1,10 +1,7 @@
 package com.example.demo.registration;
 
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * This class serves to handle a request made by the client
@@ -22,6 +19,11 @@ public class RegistrationController {
     @PostMapping
     public String register(@RequestBody RegistrationRequest request) {
         return registrationService.register(request);
+    }
+
+    @GetMapping(path = "confirm")
+    public String confirm(@RequestParam("token") String token) {
+        return registrationService.confirmToken(token);
     }
 
 }
