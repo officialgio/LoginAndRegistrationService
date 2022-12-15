@@ -18,4 +18,20 @@ spring:
         format-sql: true
     show-sql: true
 
+  mail:
+    host: localhost
+    port: 1025
+    username: random #Replace this field with your Gmail username.
+    password: random #Replace this field with your Gmail password/App password.
 
+    properties:
+      mail:
+        smtp:
+          ssl:
+            trust: "*"
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000

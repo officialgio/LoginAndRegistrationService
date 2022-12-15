@@ -20,9 +20,10 @@ import java.util.UUID;
 @AllArgsConstructor
 public class AppUserService implements UserDetailsService {
 
+    private final static String USER_NOT_FOUND_MSG = "User with email %s not found";
+
     private final AppUserRepository appUserRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
-    private final static String USER_NOT_FOUND_MSG = "User with email %s not found";
     private final ConfirmationTokenService confirmationTokenService;
 
     @Override
@@ -36,7 +37,14 @@ public class AppUserService implements UserDetailsService {
                 .findByEmail(appUser.getEmail())
                 .isPresent();
 
-        if (userExist) throw new IllegalStateException("Email already taken, try again.");
+        if (userExist) {
+            // TODO: check if attributes are the same and
+            // TODO: If emial not confirmed yet resend another email
+            throw new IllegalStateException("Email already taken, try again.");
+        }
+
+
+
         String encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());
         appUser.setPassword(encodedPassword);
 

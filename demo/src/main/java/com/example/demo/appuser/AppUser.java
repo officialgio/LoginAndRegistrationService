@@ -19,6 +19,7 @@ import java.util.Collections;
  * @SequenceGeneator  Database sequence map to table
  * @GeneratedValue  primary instructed to be generated automatically by Database as a SEQUENCE
  * @Enumerated convert enum to String
+ * @Table specifying unique a constraint for now
  */
 
 @Getter

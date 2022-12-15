@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
  * @RequestMapping  Maps web request URL
  * @PostMapping HTTP Post
  * @RequestBody Get client request
+ * @RequestParam must input the token to confirm
  */
 @RestController
 @RequestMapping("api/v1/registration")
@@ -21,6 +22,7 @@ public class RegistrationController {
         return registrationService.register(request);
     }
 
+    // localhost:8080/api/v1/registration/confirm?token=REPLACE_WITH_TOKEN
     @GetMapping(path = "confirm")
     public String confirm(@RequestParam("token") String token) {
         return registrationService.confirmToken(token);
