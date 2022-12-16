@@ -32,7 +32,6 @@ public class EmailService implements EmailSender{
             helper.setSubject("Please confirm your email");
             helper.setFrom("noreply@gmail.com");
             mailSender.send(mimeMessage);
-
         } catch (MessagingException e) {
             LOGGER.error("Failed to send Email ", e);
             throw new IllegalStateException("Failed to send email");

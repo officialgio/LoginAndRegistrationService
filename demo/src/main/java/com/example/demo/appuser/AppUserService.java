@@ -1,5 +1,7 @@
 package com.example.demo.appuser;
 
+import com.example.demo.email.EmailSender;
+import com.example.demo.registration.RegistrationService;
 import com.example.demo.registration.token.ConfirmationToken;
 import com.example.demo.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
@@ -8,9 +10,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -39,7 +41,7 @@ public class AppUserService implements UserDetailsService {
 
         if (userExist) {
             // TODO: check if attributes are the same and
-            // TODO: If emial not confirmed yet resend another email
+            // TODO: If email not confirmed yet resend another emai
             throw new IllegalStateException("Email already taken, try again.");
         }
 
@@ -60,8 +62,6 @@ public class AppUserService implements UserDetailsService {
         );
 
         confirmationTokenService.saveConfirmationToken(confirmationToken);
-
-        // TODO: Send email
         return token;
     }
 

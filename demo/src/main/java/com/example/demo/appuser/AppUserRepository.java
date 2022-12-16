@@ -8,6 +8,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
+/**
+ * This class will enable the user by performing a JPQL query to the db
+ * @Modifying perform INSERT, UPDATE, DELETE, etc.
+ * @Query JPQL expression
+ * @Transactional on a method of a class with @Transactional(readOnly = true) no data gets written to the database,
+ * whereas with {@Transactional} the data gets written to the database.
+ */
 @Repository
 @Transactional(readOnly = true)
 public interface AppUserRepository extends JpaRepository<AppUser, Long> {

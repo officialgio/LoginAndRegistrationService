@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * This class serves to handle a request made by the client
- * @RequestMapping  Maps web request URL
+ * @RequestMapping Maps web request URL
  * @PostMapping HTTP Post
  * @RequestBody Get client request
  * @RequestParam must input the token to confirm

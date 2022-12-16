@@ -1,5 +1,6 @@
 package com.example.demo.registration.token;
 
+import com.example.demo.appuser.AppUser;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -17,9 +17,9 @@ import java.util.Collections;
  * This class is meant to serve as a current registered user in the application
  * @Id Database primary key of the entity
  * @SequenceGeneator  Database sequence map to table
- * @GeneratedValue  primary instructed to be generated automatically by Database as a SEQUENCE
+ * @GeneratedValue  primary key instructed to be generated automatically by Database as a SEQUENCE
  * @Enumerated convert enum to String
- * @Table specifying unique a constraint for now
+ * @Table using to specify a constraint for now
  */
 
 @Getter
